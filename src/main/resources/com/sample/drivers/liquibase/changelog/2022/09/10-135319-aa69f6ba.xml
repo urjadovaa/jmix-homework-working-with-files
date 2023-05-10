@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="homework-drivers">
+        <createTable tableName="DOCUMENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DOCUMENT"/>
+            </column>
+            <column name="TYPE_" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DRIVER_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="homework-drivers">
+        <createTable tableName="DRIVER">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DRIVER"/>
+            </column>
+            <column name="FIRST_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BIRTH_DATE" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LICENSE_LICENSE_NUMBER" type="VARCHAR(255)"/>
+            <column name="LICENSE_EXPIRY_DATE" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="homework-drivers">
+        <createIndex indexName="IDX_DOCUMENT_DRIVER" tableName="DOCUMENT">
+            <column name="DRIVER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="DRIVER_ID" baseTableName="DOCUMENT"
+                                 constraintName="FK_DOCUMENT_ON_DRIVER" referencedColumnNames="ID"
+                                 referencedTableName="DRIVER"/>
+    </changeSet>
+</databaseChangeLog>
