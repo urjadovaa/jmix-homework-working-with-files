@@ -65,6 +65,7 @@
                 </actions>
                 <columns>
                     <column id="type"/>
+                    <column id="file"/>
                 </columns>
                 <buttonsPanel>
                     <button action="documentsTable.create"/>
