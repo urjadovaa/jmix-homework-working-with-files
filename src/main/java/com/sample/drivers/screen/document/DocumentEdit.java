@@ -8,13 +8,4 @@ import com.sample.drivers.entity.Document;
 @EditedEntityContainer("documentDc")
 public class DocumentEdit extends StandardEditor<Document> {
 
-    // test git
-    @Subscribe
-    public void onInit(InitEvent event) {
-        System.out.println("Just remove this code");
-    }
-
-
-
-
 }

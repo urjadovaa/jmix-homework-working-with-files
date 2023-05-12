@@ -30,6 +30,8 @@
         <form id="form" dataContainer="documentDc">
             <column width="350px">
                 <comboBox id="typeField" property="type"/>
+                <fileStorageUpload id="fileField"
+                                   property="file"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

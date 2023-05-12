@@ -22,6 +22,9 @@ public class Driver {
     @Id
     private UUID id;
 
+    @Column(name = "PHOTO")
+    private byte[] photo;
+
     @InstanceName
     @Column(name = "FIRST_NAME", nullable = false)
     @NotNull
@@ -47,6 +50,14 @@ public class Driver {
     @Composition
     @OneToMany(mappedBy = "driver")
     private Set<Document> documents;
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
 
     public Set<Document> getDocuments() {
         return documents;
